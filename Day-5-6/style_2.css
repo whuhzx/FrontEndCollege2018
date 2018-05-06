@@ -1,0 +1,76 @@
+
+body, ul, p, li, h1, h2{
+	margin: 0;
+	padding: 0;
+}
+
+#main{
+	margin: 0 10px;
+}
+
+h1{
+	box-sizing: border-box;
+	float: left;
+	width: 25%;
+	padding-top: 50px;
+	max-width: 200px;
+	height: 650px;
+	margin: 20px 0;
+	color: #FFF;
+	background-color: #68A6F7;
+	text-align: center;
+}
+
+#content{
+	box-sizing: border-box;
+	height: 650px;
+	width: 75%;
+	float: left;
+	padding-left: 40px;
+}
+
+h2{
+	margin-top: 10px;
+}
+
+.item{
+	margin:20px 0;
+}
+
+li{
+	list-style-type: none;
+}
+
+li span{
+	font-weight: bold;
+
+}
+
+.clearfix:after {
+	content:"."; 
+	display:block; 
+	height:0; 
+	visibility:hidden; 
+	clear:both; 
+}
+
+#info{
+	padding-top: 10px;
+}
+
+#info li, #contact li{
+	display: inline;
+	padding-right:30px;
+}
+
+#info span, #contact span{
+	padding-right: 10px;
+}
+
+#ability li, #education li, #program li{
+	margin-top: 5px;
+}
+
+#ability span, #education span, #program span{
+	display: block;
+}
