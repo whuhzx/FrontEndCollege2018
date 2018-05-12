@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4-5</title>
+	<style>
+		*{
+			box-sizing: content-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		#wrap{
+			min-width: 500px;
+		}
+
+		#center-wrap{
+			/*只有 center-wrap 左浮动，left 元素才能够被推到上一行来*/
+			float: left;
+			width: 100%;
+		}
+
+		#center{
+			padding: 0 150px;
+			height: 500px;
+			background-color: #8DDCFA;
+		}
+
+		#left{
+			width: 150px;
+			height: 500px;
+			float: left;
+			/*圣杯布局中，left 元素和 center 元素之间有间隔【wrap 设置了 padding】，也就是说 left 和 center 虽然都设置了浮动，但是没有贴合在一起。
+			但是双飞翼布局中，left 元素和 center 元素之间没有间隔，两者虽然不在一行，但确是贴合在一起的。*/
+			margin-left: -100%;
+			background-color: #C8A677;
+		}
+
+		#right{
+			width: 150px;
+			height: 500px;
+			float: left;
+			margin-left: -150px;
+
+			background-color: #2F525D;
+
+		}
+
+		
+
+	</style>
+</head>
+<body>
+	<div id="wrap">
+
+		<div id="center-wrap"><div id="center">center</div></div>
+		<div id="left">left</div>
+		<div id="right">right</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4-3</title>
+	<style>
+		*{
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		#wrap{
+			position: relative;
+			width: 100%;
+			min-width: 500px;
+		}
+
+		#left{
+			position: absolute;
+			left: 0;
+			width: 150px;
+			height: 500px;
+			float: left;
+			background-color: #C8A677;
+		}
+
+		#center{
+			margin-left: 150px;
+			margin-right: 150px;
+			height: 500px;
+			background-color: #8DDCFA;
+		}
+
+		#right{
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 150px;
+			height: 500px;
+			background-color: #2F525D;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="left">left</div>
+		<div id="center">center</div>
+		<div id="right">right</div>
+	</div>
+</body>
+</html>

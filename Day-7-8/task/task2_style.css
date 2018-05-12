@@ -1,0 +1,156 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+li{
+	list-style-type: none;
+}
+
+#header, #banner, #nav, #main, #footer{
+	width: 100%;
+}
+
+.center{
+	width: 960px;
+	margin: 0 auto;
+}
+
+.list li{
+	float: left;
+}
+
+#header{
+	background-color: #333333;
+}
+
+#header div.center{
+	position: relative;
+	height: 60px;
+	line-height: 60px;
+}
+
+#header span{
+	font-size: 20px;
+	color: #FFF;
+}
+
+ul#login {
+	position: absolute;
+	right: 0;
+	top: -20px;
+}
+
+#login li{
+	padding-left: 8px;
+}
+
+#login li a{
+	font-size: 12px;
+	color: #FFF;
+}
+
+#banner{
+	background-color: #69B93D;
+}
+
+#banner div.center{
+	height: 215px;
+}
+
+ul#page{
+	display: flex;
+	align-items: flex-end;
+	padding-left: 870px;
+	padding-top: 170px;
+
+}
+
+#page li{
+	text-align: center;	
+	padding: 2px;
+}
+
+#page li a{
+	display: inline-block;
+	width: 20px;
+	height: 25px;
+	border:1px solid #000;
+	text-decoration: none;
+	background-color: #B3DC9C;
+	color: #000;
+	font-size: 14px;
+
+}
+
+#page a.pageactive{
+	padding-top: 10px;
+	height: 35px;
+	background-color: #FFF; 
+}
+
+#nav{
+	border-bottom: 1px solid #E2E2E2;
+	margin-bottom: 7px;
+}
+
+#nav div.center{
+	position: relative;
+	height: 50px;
+}
+
+#nav ul#navcol{
+	position: absolute;
+	bottom: -1px;
+	text-align: center; 
+}
+
+#nav li a{
+	box-sizing: content-box;
+	display: inline-block;
+	width: 75px;
+	height: 35px;
+	line-height: 40px;
+	background-color: #EEEEEE;
+	text-decoration: none;
+	color: #000;
+	border: 1px solid #E4E4E4;
+	border-radius: 15px 15px 0 0;
+	font-size: 12px;
+}
+
+#nav li a.navactive{
+	background-color: #FFF;
+	border-bottom: 1px solid #FFF;
+}
+
+#main div.content-column{
+	display: flex;
+	justify-content: space-between;
+}
+
+#main div.content{
+	flex: 1 1 auto;
+	margin: 7px;
+	height: 170px;
+	border: 1px solid #CECECE;
+	text-align: center;
+	line-height: 170px;
+	font-size: 12px;
+}
+
+#footer{
+	height: 85px;
+	background-color: #666666;
+	text-align: center;
+	margin-top: 15px
+}
+
+#footer p{
+	font-size: 9px;
+	color: #FFF;
+	padding-top: 10px;
+}
+
+

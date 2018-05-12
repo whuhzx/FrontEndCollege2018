@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4-6</title>
+	<style>
+		*{
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		#wrap{
+			width: 100%:;
+			display: flex;
+			min-width: 500px;
+		}
+
+		#left{
+			flex: 0 0 auto;
+			width: 150px;
+			height: 500px;
+			background-color: #C8A677;
+		}
+
+		#center{
+			flex: 1 0 auto;
+			height: 500px;
+			background-color: #8DDCFA;	
+		}
+
+		#right{
+			flex: 0 0 auto;
+			width: 150px;
+			height: 500px;
+			background-color: #2F525D;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="left">left</div>
+		<div id="center">center</div>
+		<div id="right">right</div>
+	</div>
+</body>
+</html>
