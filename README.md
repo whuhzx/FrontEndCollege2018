@@ -55,3 +55,9 @@
 
 ### 任务二
 按设计稿实现HTML页面及CSS样式
+
+## Day-9-11
+### 任务：按照设计稿完成页面设计
+- index.html
+- style.css
+- image
