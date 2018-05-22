@@ -60,4 +60,10 @@
 ### 任务：按照设计稿完成页面设计
 - index.html
 - style.css
-- image
+- /image/
+
+## Day-12-15
+### 任务：按照设计稿完成复杂页面的设计
+- index.html
+- style.css
+- /image/

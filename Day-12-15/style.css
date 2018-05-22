@@ -1,0 +1,464 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+li{
+	list-style-type: none;
+}
+
+a{
+	text-decoration: none;
+}
+
+html,body,#container{
+	height: 100%;
+}
+
+body, #container{
+	overflow: hidden;
+}
+
+.clearfix:after{
+	content: "";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+/*left column*/
+#left{
+	float: left;
+	position: relative;
+	width: 70px;
+	height: 100%;
+	background-color: #1D2530;
+	text-align: center;
+}
+
+#left #left-top-icons img{
+	width: 40px;
+}
+
+#left #left-top-icons li{
+	display: inline-block;
+	margin-top: 15px;
+}
+
+#left #left-bottom-icons{
+	position: absolute;
+	bottom: 10px;
+	left: 15px;
+}
+
+#left #left-bottom-icons img{
+	width: 15px;
+}
+
+#left #left-bottom-icons span:first-child{
+	margin-right: 5px;
+}
+
+
+
+/*menu column*/
+#panel{
+	position: relative;
+	float: left;
+	width: 200px;
+	height: 100%;
+	background-color: #222C3B;
+}
+
+#panel ul{
+	margin:0 15px;
+}
+
+#panel ul.menu, #panel ul.product{
+	border-bottom: 1px solid #949DAA;
+}
+
+#panel ul li{
+	margin: 7px;
+}
+
+#panel ul li:first-child{
+	margin-top: 14px;
+}
+
+#panel ul li:last-child{
+	margin-bottom: 14px;
+}
+
+#panel ul li a{
+	font-size: 12px;
+	color: #B7C0CC;
+}
+
+#panel ul li:first-child a{
+	color: #505B6C;
+}
+
+#panel ul li{
+	position: relative;
+}
+
+#panel ul li:first-child span{
+	position: absolute;
+	right: 5px;
+}
+
+#panel ul li:first-child span img{
+	width: 12px;
+}
+
+#panel span.messagenum{
+	position: absolute;
+	right: 5px;
+	text-align: center;
+	line-height: 18px;
+	display: inline-block;
+	width: 20px;
+	height: 18px;
+	background-color: #2D9AEE;
+	border-radius: 7px;
+	color: #FFF;
+	font-size: 10px;
+}
+
+#panel .alert img{
+	width: 18px;
+}
+
+#panel span.alert{
+	position: absolute;
+	right: 5px;
+}
+
+#panel #money-goal{
+	position: absolute;
+	bottom: 10px;
+	margin: 0 20px;
+}
+
+#panel #money-goal span{
+	color: #FFF;
+	font-size: 12px;
+}
+
+#panel #money-goal span:first-child{
+	margin-right: 20px;
+}
+
+#panel #money-goal img{
+	width: 150px;
+}
+
+
+/*main page*/
+#main{
+	margin-left: 250px;
+	height: 100%;
+}
+
+/*profile row*/
+#main #profile{
+	position: fixed;
+	top: 0;
+	left: 270px;
+	right: 0;
+	height: 70px;
+	line-height: 70px;
+	border: 1px solid #333;
+	background-color: #FFF;
+}
+
+#main #profile p:first-child{
+	padding-left: 20px;
+}
+
+#main #person{
+	position: fixed;
+	right: 0;
+	top: 10px;
+	width: 200px;
+}
+
+#main #person img{
+	float: left;
+}
+
+#main #person #person-name{
+	float: left;
+	height: 23px;
+	font-size: 12px;
+}
+
+#main #person #person-name p{
+	line-height: 25px;
+	padding-left: 10px;
+}
+
+/*message column*/
+#message-container{
+	padding-top: 70px;
+	overflow: hidden;
+	height: 100%;
+}
+
+#message{
+	overflow: auto;
+	float: left;
+	width: 270px;
+	height: 100%;
+}
+
+#message #search{
+	height: 50px;
+}
+
+#message form{
+	position: relative;
+}
+
+#message #search input{
+	width: 200px;
+	height: 30px;
+	margin: 10px 35px;
+	padding-left: 10px;
+	color: #333;
+}
+
+#message #search form img{
+	position: absolute;
+	right: 38px;
+	top: 17px;
+}
+
+
+#message .dialogue{
+	height: 85px;
+	border-bottom: 1px solid #E6E9EC;
+	border-right: 1px solid #E6E9EC;
+}
+
+#message div.active-dialogue p.person-name{
+	color: #62B5F2;
+}
+
+
+div.active-dialogue{
+	position: relative;
+	border-left: 3px solid #2D9AEE;
+}
+
+.dialogue span.blue-message{
+	display: inline-block;
+	position: absolute;
+	right: 20px;
+	top: 30px;
+	color: #FFF;
+	font-size: 12px;
+	width: 17px;
+	height: 17px;
+	background-color: #2D9AEE;
+	line-height: 17px;
+	text-align: center;
+	border-radius: 100%;
+}
+
+#message .contact-person{
+	position: relative;
+}
+
+#message .contact-person img{
+	float: left;
+	width: 32px;
+	margin: 5px 5px 5px 15px;
+}
+
+#message .contact-person p{
+	margin-left: 60px; 
+	padding-top: 4px;
+}
+
+#message .contact-person .person-name{
+	font-size: 14px;
+}
+
+#message .contact-person .person-corp{
+	font-size: 12px;
+	color: #CCC;
+}
+
+#message .contact-person .person-time{
+	position: absolute;
+	top: 14px;
+	right: 15px;
+	font-size: 12px;
+	color: #9FABBA;
+}
+
+#message .contact-content{
+	padding: 0 15px;
+	font-size: 12px;
+	color: #686C75;
+	line-height: 17px;
+	height: 34px;
+	margin-left: 47px;
+	overflow: hidden;
+	margin-top: 3px;
+}
+
+#contact{
+	height: 100%;
+	margin-left: 270px;
+	overflow: auto;
+}
+
+#contact div#contact-top{
+	height: 60px;
+	
+}
+
+#contact #contact-top p:first-child{
+	float: left;
+	color: #6C717A;
+	font-size: 14px;
+	margin: 25px 0 0 15px;
+}
+
+#contact-top #contact-top-button{
+	float: right;
+	margin-top: 20px;
+}
+
+#contact-top #contact-top-button div{
+	float: left;
+	margin-right: 10px;
+	border: 1px solid #E9EAEF;
+	border-radius: 3px;
+}
+
+#contact-top #contact-top-button div span{
+	width: 24px;
+	height: 24px;
+	float: left;
+	line-height: 24px;
+	text-align: center;
+	background-color: #FCFCFD;
+}
+
+#contact-top #contact-top-button div span:first-child{
+	border-right: 1px solid #E9EAEF;
+}
+
+#contact-top #contact-top-button div span:nth-child(3){
+	border-left: 1px solid #E9EAEF;
+}
+
+#contact-top #contact-top-button p{
+	float: left;
+	margin: 3px 15px;
+	font-size: 14px;
+	color: #71809B;
+}
+
+#contact-top #contact-top-button div span img{
+	width: 12px;
+
+}
+
+#contact .contact-message img{
+	float: left;
+	width: 32px;
+	margin: 18px;
+}
+
+#contact-top #contact-top-button .contact-top-button-arrow img{
+	width: 6px;
+}
+
+#contact .contact-message div{
+	margin-left: 80px;
+	padding:15px 25px 15px 0;
+}
+
+#contact .contact-message div span:first-child{
+	font-size: 14px;
+	color: #6C707A;
+}
+
+#contact .contact-message div span:nth-child(2){
+	font-size: 12px;
+	color: #A4B0BE;
+	padding-left: 10px;
+}
+
+#contact .contact-message div p{
+	font-size: 12px;
+	color: #92949B;
+}
+
+.message-time{
+	position: relative;
+	padding-bottom: 25px;
+	border-top: 1px solid #E6E9EC;
+}
+
+.message-time .top-line-time{
+	display: inline-block;
+	position: absolute;
+	padding: 0 5px;
+	top: -8px;
+	left: 46%;
+	font-size: 12px;
+	background-color: #FFF;
+	color: #A4B0BF;
+}
+
+.message-time span.newmessage{
+	color: #75BEF3;
+}
+
+.message-time .contact-image{
+	margin: 20px 0 0 80px;
+}
+
+.message-time .contact-image img:hover{
+	background-color: #000;
+}
+
+.message-time #reply{
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #E6E9EC;
+	margin: 0 30px;
+	overflow: hidden;
+}
+
+.message-time #reply span{
+	float: left;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #E6E9EC; 
+	text-align: center;
+	background-color: #F3F4F8;
+}
+
+.message-time #reply p{
+	font-size: 12px;
+	color: #92949B;
+	margin-left: 50px;
+}
+
+
+
+
+
+
+
+

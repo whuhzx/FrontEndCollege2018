@@ -186,7 +186,7 @@ flex
 父元素设置`{height: ?px; line-height: ?px}`
 
 1、行内元素的垂直居中
-父元素的`height`和`height`高度数值相等
+父元素的`height`和`inline-height`高度数值相等
 
 2、块级元素的垂直居中（子元素高度不固定）
 父元素设置`{display:table-cell; vertical-align:middle}`
