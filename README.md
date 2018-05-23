@@ -67,3 +67,11 @@
 - index.html
 - style.css
 - /image/
+
+## Day-16
+### 任务一：加减乘除计算
+- calculate.html
+
+### 任务二：简历隐藏/显示内容
+- resume.html
+- style_3.css
