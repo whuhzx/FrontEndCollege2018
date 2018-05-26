@@ -87,7 +87,7 @@
 
 ## Day-18
 - [task1.html](https://whuhzx.github.io/FrontEndCollege2018/Day-18/task1.html)：利用 getElementById()、getElementsByTagName()、childNodes 和 parentNode 实现任务中的函数
-- [task1.html](https://whuhzx.github.io/FrontEndCollege2018/Day-18/task2.html)：利用 querySelector 和 querySelectorAll 实现任务中的函数
+- [task2.html](https://whuhzx.github.io/FrontEndCollege2018/Day-18/task2.html)：利用 querySelector 和 querySelectorAll 实现任务中的函数
 
 
 
