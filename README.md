@@ -46,12 +46,12 @@
 笔记:float + (margin-left、margin-right) + float 方案不行。block（center）元素会忽视浮动元素（left），但是浮动元素（right）不会忽视 block 元素。即，block 元素即使设置了 margin 仍然占据一行，后面的浮动元素（right）无法填补上其空隙。
 
 #### 实现一个三栏布局，左侧固定宽度，中间固定宽度，右侧根据浏览器宽度变化而自适应变化
-- 5-1：float + float + float;
-- 5-2：inline-block + inline-block + inline-block
-- 5-3：absolute + absolute + margin-left
-- 5-4：float + float + margin-left
-- 5-5：float + float + BFC
-- 5-6：flex
+- [5-1](https://whuhzx.github.io/FrontEndCollege2018/Day-07-08/task/5-1)：float + float + float;
+- [5-2](https://whuhzx.github.io/FrontEndCollege2018/Day-07-08/task/5-2)：inline-block + inline-block + inline-block
+- [5-3](https://whuhzx.github.io/FrontEndCollege2018/Day-07-08/task/5-3)：absolute + absolute + margin-left
+- [5-4](https://whuhzx.github.io/FrontEndCollege2018/Day-07-08/task/5-4)：float + float + margin-left
+- [5-5](https://whuhzx.github.io/FrontEndCollege2018/Day-07-08/task/5-5)：float + float + BFC
+- [5-6](https://whuhzx.github.io/FrontEndCollege2018/Day-07-08/task/5-6)：flex
 
 ### 任务二
 按设计稿实现HTML页面及CSS样式
@@ -80,9 +80,9 @@
 
 ## Day-17
 - [task1.html](https://whuhzx.github.io/FrontEndCollege2018/Day-17/task1.html)：除数是为0的时候，在 console 进行提示
-- [task2.html]((https://whuhzx.github.io/FrontEndCollege2018/Day-17/task2.html)：把十进制整数转化为二进制
-- [task3.html]((https://whuhzx.github.io/FrontEndCollege2018/Day-17/task3.html)：在 console 中输出从 1 到 100 各数字，当数字为 3 的倍数的时候，输出"PA"
-- [task4.html]((https://whuhzx.github.io/FrontEndCollege2018/Day-17/task4.html)：在网页中，使用 table 来实现一个九九乘法表
-- [task5.html]((https://whuhzx.github.io/FrontEndCollege2018/Day-17/task5.html)：当用户访问页面的时候，根据当前时间，输出不同的问候语
+- [task2.html](https://whuhzx.github.io/FrontEndCollege2018/Day-17/task2.html)：把十进制整数转化为二进制
+- [task3.html](https://whuhzx.github.io/FrontEndCollege2018/Day-17/task3.html)：在 console 中输出从 1 到 100 各数字，当数字为 3 的倍数的时候，输出"PA"
+- [task4.html](https://whuhzx.github.io/FrontEndCollege2018/Day-17/task4.html)：在网页中，使用 table 来实现一个九九乘法表
+- [task5.html](https://whuhzx.github.io/FrontEndCollege2018/Day-17/task5.html)：当用户访问页面的时候，根据当前时间，输出不同的问候语
 
 
