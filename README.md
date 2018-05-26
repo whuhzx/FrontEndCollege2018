@@ -85,4 +85,9 @@
 - [task4.html](https://whuhzx.github.io/FrontEndCollege2018/Day-17/task4.html)：在网页中，使用 table 来实现一个九九乘法表
 - [task5.html](https://whuhzx.github.io/FrontEndCollege2018/Day-17/task5.html)：当用户访问页面的时候，根据当前时间，输出不同的问候语
 
+## Day-18
+- [task1.html](https://whuhzx.github.io/FrontEndCollege2018/Day-18/task1.html)：利用 getElementById()、getElementsByTagName()、childNodes 和 parentNode 实现任务中的函数
+- [task1.html](https://whuhzx.github.io/FrontEndCollege2018/Day-18/task2.html)：利用 querySelector 和 querySelectorAll 实现任务中的函数
+
+
 
