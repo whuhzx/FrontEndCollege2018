@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link href="style_3.css" rel="stylesheet" type="text/css"/>
+	<title>Resume</title>
+</head>
+<body>
+	<div id="main" class="clearfix">
+		<h1>简历</h1>
+		<div id="content">
+			<div id="info" class="item clearfix">
+				<h2>基本信息</h2>
+				<button>点击隐藏/显示</button>
+				<ul>
+					<li><span class="bolder">姓名</span>张三</li>
+					<li><span class="bolder">性别</span>男</li>
+					<li><span class="bolder">应聘职位</span>Web前端工程师</li>
+				</ul>
+			</div>
+
+			<div id="contact" class="item clearfix">
+				<h2>联系方式</h2>
+				<button>点击隐藏/显示</button>
+				<ul>
+					<li><span class="bolder">手机</span>1231234566</li>
+					<li><span class="bolder"><span>Email</span><a href="">joinefe@baidu.com</a></li>
+					<li><span class="bolder">个人主页</span><a href="">Github</a></li>
+				</ul>
+			</div>
+
+			<div id="ability" class="item clearfix">
+				<h2>能力描述</h2>
+				<button>点击隐藏/显示</button>
+				<ul>
+					<li><span class="bolder">技术能力</span>熟练掌握HTML,CSS,JavaScript</li>
+					<li><span class="bolder">综合能力</span>良好的沟通，主动积极，努力勤奋</li>
+				</ul>
+			</div>
+
+			<div id="education" class="item clearfix">
+				<h2>教育经历</h2>
+				<button>点击隐藏/显示</button>
+				<ul>
+				<li><span class="bolder">本科</span>百度前端技术学院小薇学院</li>
+				<li><span class="bolder">研究生</span>百度前端技术学院大斌学院</li>
+				</ul>
+			</div>
+
+			<div id="program" class="item clearfix">
+				<h2>项目经历</h2>
+				<button>点击隐藏/显示</button>
+				<ul>
+				<li><span class="bolder">小度小度</span>作为前端工程师角色参与了ABC组件的开发</li>
+				<li><span class="bolder">SAN Doc</span>作为文档工程师参与了SAN Doc编写</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+
+	<script>
+		var buttons = document.getElementsByTagName("button");	
+		for (var i = 0; i < buttons.length; i++) {
+			buttons[i].onclick = function(){
+				if (this.nextElementSibling.style.display != "none") {
+					this.nextElementSibling.style.display = "none"
+				}else{
+					this.nextElementSibling.style.display = "block"
+				}
+			}
+		}
+
+		var title = document.getElementsByTagName("h1")[0]
+		var timespan = document.createElement("p");
+		timespan.style = "font-size:14px; color: #75BEF3;"
+		title.appendChild(timespan)
+		timespan.appendChild(document.createTextNode(nowtime()));
+
+		function nowtime(){
+			var hour = new Date().getHours()
+			var minute = new Date().getMinutes()
+			var time = `现在是北京时间${hour}时${minute}分`
+			if(hour >= 5 && hour < 12){
+				return `早上好，${time}`
+			}else if(hour >= 12 && hour < 19){
+				return `下午好，${time}`
+			}else{
+				return `晚上好，${time}`
+			}
+		}
+
+	</script>
+</body>
+</html>
