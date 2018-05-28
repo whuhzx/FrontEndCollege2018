@@ -78,16 +78,23 @@
 - [resume.html](https://whuhzx.github.io/FrontEndCollege2018/Day-16/resume.html)
 - style_3.css
 
-## Day-17
-- [task1.html](https://whuhzx.github.io/FrontEndCollege2018/Day-17/task1.html)：除数是为0的时候，在 console 进行提示
-- [task2.html](https://whuhzx.github.io/FrontEndCollege2018/Day-17/task2.html)：把十进制整数转化为二进制
-- [task3.html](https://whuhzx.github.io/FrontEndCollege2018/Day-17/task3.html)：在 console 中输出从 1 到 100 各数字，当数字为 3 的倍数的时候，输出"PA"
-- [task4.html](https://whuhzx.github.io/FrontEndCollege2018/Day-17/task4.html)：在网页中，使用 table 来实现一个九九乘法表
-- [task5.html](https://whuhzx.github.io/FrontEndCollege2018/Day-17/task5.html)：当用户访问页面的时候，根据当前时间，输出不同的问候语
+## Day-17-18
+- [task1.html](https://whuhzx.github.io/FrontEndCollege2018/Day-17-18/task1.html)：除数为0的时候，在 console 进行提示
+- [task2.html](https://whuhzx.github.io/FrontEndCollege2018/Day-17-18/task2.html)：把十进制整数转化为二进制
+- [task3.html](https://whuhzx.github.io/FrontEndCollege2018/Day-17-18/task3.html)：在 console 中输出从 1 到 100 各数字，当数字为 3 的倍数的时候，输出"PA"
+- [task4.html](https://whuhzx.github.io/FrontEndCollege2018/Day-17-18/task4.html)：在网页中，使用 table 来实现一个九九乘法表
+- [task5.html](https://whuhzx.github.io/FrontEndCollege2018/Day-17-18/task5.html)：当用户访问页面的时候，根据当前时间，输出不同的问候语
 
-## Day-18
-- [task1.html](https://whuhzx.github.io/FrontEndCollege2018/Day-18/task1.html)：利用 getElementById()、getElementsByTagName()、childNodes 和 parentNode 实现任务中的函数
-- [task2.html](https://whuhzx.github.io/FrontEndCollege2018/Day-18/task2.html)：利用 querySelector 和 querySelectorAll 实现任务中的函数
+## Day-19
+- [task1.html](https://whuhzx.github.io/FrontEndCollege2018/Day-19/task1.html)：利用 getElementById()、getElementsByTagName()、childNodes 和 parentNode 实现任务中的函数
+- [task2.html](https://whuhzx.github.io/FrontEndCollege2018/Day-19/task2.html)：利用 querySelector 和 querySelectorAll 实现任务中的函数
+
+## Day-20-21
+- [task1.html](https://whuhzx.github.io/FrontEndCollege2018/Day-20-21/task1.html)：点击按钮或者按下键盘按键，执行相关操作
+- [task2.html](https://whuhzx.github.io/FrontEndCollege2018/Day-20-21/task2.html)：当用户选择单选框时，显示其中一个下拉选项，隐藏另一个的下拉选项
+- [task3.html](https://whuhzx.github.io/FrontEndCollege2018/Day-20-21/task3.html)：点击某一个 li 元素时，将 li 的背景色显示在 p 标签内， 同时将 p 标签的文字颜色设置成 li 的背景色
+- [task4.html](https://whuhzx.github.io/FrontEndCollege2018/Day-20-21/task4.html)：使用 setTimeout 或 setInterval 实现元素的淡入淡出等功能
+- [task5.html](https://whuhzx.github.io/FrontEndCollege2018/Day-20-21/task5.html)：用 CSS Sprite 实现一个帧动画
 
 
 

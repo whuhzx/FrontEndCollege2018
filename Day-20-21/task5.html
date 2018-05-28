@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task5</title>
+	<style>
+		.container{
+			width: 480px;
+			height: 479px;
+			margin: 100px auto;
+			background-image: url(erik.jpg);
+		}
+	</style>
+</head>
+<body>
+	<div class="container"></div>
+</body>
+	<script>
+		var container = document.getElementsByClassName("container")[0];
+		(function change(count = 0){
+			if(count>17) count = 0;
+			container.style.backgroundPosition = `0 -${count * 480 + 1}px`;
+			console.log(count)
+			count++;
+			setTimeout(change, 100, count);
+		})()
+
+	</script>
+</html>

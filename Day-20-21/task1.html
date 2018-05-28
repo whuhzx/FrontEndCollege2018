@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task1</title>
+</head>
+<body>
+	<input id="name" type="text">    
+	<button id="submit-btn">Submit</button>
+</body>
+	<script>
+		var sub_button = document.getElementById("submit-btn");
+		sub_button.onclick = getname;
+		document.onkeydown = function(e){
+			/*keyCode 当中的 C 是大写！！*/
+			if (e.keyCode == 13) getname();
+			if (e.keyCode == 27) deletetext();			
+		}
+
+		function getname(){
+			console.log(document.getElementById("name").value);
+		}
+
+		function deletetext(){
+			document.getElementById("name").value = "";
+		}
+
+
+	</script>
+</html>
