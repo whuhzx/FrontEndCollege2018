@@ -96,5 +96,12 @@
 - [task4.html](https://whuhzx.github.io/FrontEndCollege2018/Day-20-21/task4.html)：使用 setTimeout 或 setInterval 实现元素的淡入淡出等功能
 - [task5.html](https://whuhzx.github.io/FrontEndCollege2018/Day-20-21/task5.html)：用 CSS Sprite 实现一个帧动画
 
+## Day-22-24
+
+## Day-25-27
+- 课程页面：[倒数开始 滴答滴 滴答滴](http://ife.baidu.com/course/detail/id/51)
+- [task1.html](https://whuhzx.github.io/FrontEndCollege2018/Day-25-27/task1.html)：封装函数
+- [task2.html](https://whuhzx.github.io/FrontEndCollege2018/Day-25-27/task2.html)：设计一个简单的时钟，实时更新当前时间
+- [task3.html](https://whuhzx.github.io/FrontEndCollege2018/Day-25-27/task3.html)：设计一个稍微复杂的时钟。根据要求，html 内有一堆 Select 用于选择日期和时间，在选择后，实时在 id 为 result-wrapper 的 p 标签中显示所选时间和当前时间的差值。
 
 

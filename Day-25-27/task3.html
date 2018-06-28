@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task3</title>
+</head>
+<body>
+<select id="year-select">
+</select>
+
+<select id="month-select">
+</select>
+
+<select id="day-select">
+</select>
+
+<select id="hour-select">
+</select>
+
+<select id="minute-select">
+</select>
+
+<select id="second-select">
+</select>
+
+<p id="result-wrapper"></p>
+</body>
+
+
+<script>
+// 使用上方的HTML结构（可以根据需要自行微调）为基础编写JavaScript代码
+// 当变更任何一个select选择时，更新 result-wrapper 的内容
+// 当所选时间早于现在时间时，文案为 现在距离 "所选时间" 已经过去 xxxx
+// 当所选时间晚于现在时间时，文案为 现在距离 "所选时间" 还有 xxxx
+// 注意当前时间经过所选时间时候的文案变化
+// 注意选择不同月份的时候，日期的可选范围不一样，比如1月可以选31天，11月只有30天，注意闰年
+// 同样，需要注意，通过优雅的函数封装，使得代码更加可读且可维护
+
+var result = document.getElementById("result-wrapper");
+var selects = document.getElementsByTagName("select");
+var year = getYear();
+var month = getMonth();
+var day = getDay();
+var hours = getHour();
+var minutes = getMinute();
+var seconds = getSecond();
+var weekday, when;
+
+
+(function(){
+    for(let select of selects){
+        select.onchange = function(){
+            changeOption(select);
+        }
+    }
+    showResult()
+})()
+
+function changeOption(select){
+    var option = Number(select.options[select.selectedIndex].value);
+    var id = select.id;
+    switch(id){
+        case "year-select":
+            year = option;
+            day = getDay();
+            break;
+        case "month-select":
+            month = option;
+            day = getDay();
+            setResult();
+            break;
+        case "day-select":
+            day = option;
+            break;
+        case "hour-select":
+            hours = option;
+            break;
+        case "minute-select":
+            minutes = option;
+            break;
+        case "second-select":
+            seconds = option;
+            break;
+    }
+    showResult();
+}
+
+function showResult(){
+    var nowTime = new Date();
+    var appointTime = new Date();
+    appointTime.setFullYear(year, month-1, day);
+    appointTime.setHours(hours, minutes, seconds);
+    weekday = transWeekday(appointTime.getDay());
+    var gap = Math.abs(nowTime - appointTime);
+    when = nowTime - appointTime >= 0? "已经过去" : "还有";
+    transTime(gap)
+}
+
+function transTime(gap){
+    var total = gap / 1000;
+    var remainhours, remainminutes;
+    leftday = Math.floor(total / (3600 * 24));
+    remainhours = total % (60 * 60 * 24);
+    lefthours = Math.floor(remainhours / 3600);
+    remainminutes = remainhours % 3600;
+    leftminutes = Math.floor(remainminutes / 60);
+    leftseconds = remainminutes % 60;
+    setResult();
+}
+
+function setResult(){
+    result.innerHTML = `现在距离${year}年${month}月${day}日星期${weekday} ${hours}:${minutes}:${seconds} ${when} ${leftday} 天 ${lefthours} 小时 ${leftminutes} 分 ${leftseconds} 秒`
+}
+
+function transWeekday(weekday){
+    var result;
+    switch(weekday){
+        case 0: 
+            result = "日";
+            break;
+        case 1: 
+            result = "一";
+            break;
+        case 2: 
+            result = "二";
+            break;
+        case 3: 
+            result = "三";
+            break;
+        case 4: 
+            result = "四";
+            break;
+        case 5: 
+            result = "五";
+            break;
+        case 6: 
+            result = "六";
+            break;
+    }
+    return result;
+}
+
+function getYear(){
+    var dom = document.getElementById("year-select");
+    createOption(dom, 2000, 2030)
+    return Number(dom.options[dom.selectedIndex].value);
+}
+
+function getMonth(){
+    var dom = document.getElementById("month-select");
+    createOption(dom, 1, 12);
+    console.log(Number(dom.options[dom.selectedIndex].value))
+    return Number(dom.options[dom.selectedIndex].value);
+}
+
+function getDay(){
+    var dom = document.getElementById("day-select");
+    //月份应有的 option 数量
+    var end;
+    if ([1, 3, 5, 7, 8, 10, 12].indexOf(month) !== -1) end = 31;
+    if ([4, 6, 9, 11].indexOf(month) !== -1) end = 30;
+    if (month == 2) end = 28;
+    if (year % 4 == 0 && month == 2) end = 29;
+    
+    if (dom.options.selectedIndex == -1) {
+        createOption(dom, 1, end)
+    }else{
+        //现有的 option 数量
+        var length = dom.options.length;
+        var changenum = Math.abs(length - end);
+        console.log(length, month, changenum)
+        if(length > end){
+            for (var i = 0; i < changenum; i++) {
+                dom.lastElementChild.remove()
+            }
+        }else if(length < end){
+            createOption(dom, end - changenum + 1, end)
+        }
+        console.log(length)
+    }
+    return dom.options[dom.selectedIndex].value
+}
+
+function getHour(){
+    var dom = document.getElementById("hour-select");
+    createOption(dom, 0, 23);
+    return Number(dom.options[dom.selectedIndex].value)
+}
+
+function getMinute(){
+    var dom = document.getElementById("minute-select");
+    createOption(dom, 0, 59);
+    return Number(dom.options[dom.selectedIndex].value)
+}
+
+function getSecond(){
+    var dom = document.getElementById("second-select");
+    createOption(dom, 0, 59);
+    return Number(dom.options[dom.selectedIndex].value)
+}
+
+function createOption(dom, begin, end){
+    var length = end - begin;
+    var list = [];
+    for (var i = 0; i <= length; i++) {
+        list.push(begin + i);
+    }
+
+    for(var i = 0; i <= length; i++){
+        var opt = document.createElement('option');
+        opt.value = list[i];
+        opt.innerHTML = list[i];
+        dom.appendChild(opt);
+    }
+}
+</script>
+</html>

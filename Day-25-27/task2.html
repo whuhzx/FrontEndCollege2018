@@ -1,0 +1,124 @@
+<!-- 我们现在来做一个最简单的时钟，通过小练习来学习 Date，复习定时，然后再练习一下函数的封装
+具体需求如下：
+
+在页面中显示当前日期及时间，按秒更新
+格式为 YYYY 年 MM 月 DD 日 星期 D HH:mm:ss
+注意位数的补齐，比如：
+ 假设时间为2008年10月10日星期一的12点12分12秒，显示2008年10月10日星期一 12:12:12
+ 假设时间为2008年1月1日星期一的3点2分2秒，显示2008年01月01日星期一 03:02:02
+编码过程中，我们希望你注意对函数的封装，尽量让一个函数就做一个事情，而不要把所有的功能、代码揉在一起：
+
+封装一个函数，来根据某个日期返回这一天是星期几
+封装一个函数，把月、日、小时等出现个位数的情况前面补充0，补充为两位，比如1变为01
+封装一个函数，把最后的日期时间，按照要求的格式进行包装
+可能不止上面这些，尽可能地进行功能的解耦和拆解 -->
+
+<!-- 输出格式变为：2008-10-10 Monday 07:10:30 PM-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task2</title>
+</head>
+<body>
+	<p id="result1"></p>
+	<p id="result2"></p>
+</body>
+<script>
+	var result1 = document.getElementById("result1");
+	var result2 = document.getElementById("result2");
+
+	function nowTime(){
+		var now = new Date();
+		var day = now.getDay() + 1;
+		var year = now.getFullYear();
+		var month = now.getMonth() + 1;
+		var date = now.getDate();
+		var hours = now.getHours();
+		var minutes = now.getMinutes();
+		var seconds = now.getSeconds();
+		dayOrNight(hours);
+
+		result1.innerHTML = `${year}年${addZero(month)}月${addZero(date)}日星期${ChinaDay(day)} ${addZero(hours)}:${addZero(minutes)}:${addZero(seconds)}`
+
+		//输出格式 2008-10-10 Monday 07:10:30 PM
+		result2.innerHTML = `${year}-${addZero(month)}-${addZero(date)} ${EngDay(day)} ${addZero(hours)}:${addZero(minutes)}:${addZero(seconds)} ${dayOrNight()}`
+	}
+
+	function addZero(num){
+		if(num < 10){
+			num = "0" + num;
+		}
+		return num
+	}
+
+	function ChinaDay(day){
+		var result;
+		switch(day){
+			case 1:
+				result = "一";
+				break;
+			case 2:
+				result = "二";
+				break;
+			case 3:
+				result = "三";
+				break;
+			case 4:
+				result = "四";
+				break;
+			case 5:
+				result = "五";
+				break;
+			case 6:
+				result = "六";
+				break;
+			case 7:
+				result = "日";
+				break;
+		}
+		return result;
+	}
+
+	function EngDay(day){
+		switch(day){
+			case 1:
+				result = "Monday";
+				break;
+			case 2:
+				result = "Tuesday";
+				break;
+			case 3:
+				result = "Wednesday";
+				break;
+			case 4:
+				result = "Thursday";
+				break;
+			case 5:
+				result = "Friday";
+				break;
+			case 6:
+				result = "Saturday";
+				break;
+			case 7:
+				result = "Sunday";
+				break;
+		}
+		return result;
+	}
+
+	function dayOrNight(hours){
+		if(hours <= 12){
+			return "AM"
+		}else{
+			return "PM"
+		}
+	}
+
+	setInterval(nowTime, 1000);
+
+	
+</script>
+</html>
