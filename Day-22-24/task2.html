@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task2</title>
+</head>
+<body>
+    <div>
+        <label>String A:
+            <input id="radio-a" type="radio" checked="true" name="str-obj" value="a">
+        </label>
+        <textarea id="str-a"></textarea>
+        <label>String B:
+            <input id="radio-b" type="radio" name="str-obj" value="b">
+        </label>
+        <textarea id="str-b"></textarea>        
+        <label>Num A：<input id="num-a" type="number" value="0"></label>
+        <label>Num B：<input id="num-b" type="number" value="1"></label>
+    </div>
+    <div>
+        <button>获取当前选中输入的内容长度</button>
+        <button>当前选中输入中的第3个字符</button>
+        <button>把两个输入框的文字连接在一起输出（concat）</button>
+        <button>输入B中的内容，在输入A的内容中第一次出现的位置（indexOf）</button>
+        <button>输入A中的内容，在输入B的内容中最后一次出现的位置（lastIndexOf）</button>
+        <button>使用slice获取选中输入框内容的部分内容，参数为num-a及num-b</button>
+        <button>当前选中输入框的行数</button>
+        <button>使用substr获取选中输入框内容的子字符串，参数为num-a及num-b</button>
+        <button>把所选输入框中的内容全部转为大写</button>
+        <button>把所选输入框中的内容全部转为小写</button>
+        <button>把所选输入框中内容的半角空格全部去除</button>
+        <button>把所选输入框中内容的a全部替换成另外一个输入框中的内容</button>
+    </div>
+    <p id="result"></p>
+</body>
+    <script>
+        var result = document.getElementById("result");
+        var buttons = document.getElementsByTagName("button");
+        var button1 = buttons[0];
+        var button2 = buttons[1];
+        var button3 = buttons[2];
+        var button4 = buttons[3];
+        var button5 = buttons[4];
+        var button6 = buttons[5];
+        var button7 = buttons[6];
+        var button8 = buttons[7];
+        var button9 = buttons[8];
+        var button10 = buttons[9];
+        var button11 = buttons[10];
+        var button12 = buttons[11];
+
+        //获取当前选中输入的内容长度
+        button1.onclick = function(){
+            result.innerHTML = `当前选中输入的内容长度为${checkRadio().length}`;
+        }
+
+        //当前选中输入中的第3个字符
+        button2.onclick = function(){
+            result.innerHTML = `当前选中的第3个字符为${checkRadio()[2]}`;
+        }
+
+        //把两个输入框的文字连接在一起输出（concat）
+        button3.onclick = function(){
+            var stringA = getStringA();
+            var stringB = getStringB();
+            result.innerHTML = `两个输入框的文字连接在一起的结果是：${stringA.concat(stringB)}`;
+        }
+
+        //输入B中的内容，在输入A的内容中第一次出现的位置（indexOf）
+        button4.onclick = function(){
+            var stringA = getStringA();
+            var stringB = getStringB();
+            result.innerHTML = `第一次出现的位置是：${stringA.indexOf(stringB)}`;
+        }
+
+        //输入A中的内容，在输入B的内容中最后一次出现的位置（lastIndexOf）
+        button5.onclick = function(){
+            var stringA = getStringA();
+            var stringB = getStringB();
+            result.innerHTML = `结果是：${stringB.lastIndexOf(stringA)}`;
+        }
+
+        //使用slice获取选中输入框内容的部分内容，参数为num-a及num-b
+        button6.onclick = function(){
+            result.innerHTML = checkRadio().slice(getNumA(), getNumB());
+        }
+
+        //当前选中输入框的行数
+        button7.onclick = function(){
+            var lines = checkRadio().split(/\r|\r\n|\n/).length;
+            result.innerHTML = `选中输入框的行数是${lines}`;
+        }
+
+        //使用substr获取选中输入框内容的子字符串，参数为num-a及num-b
+        button8.onclick = function(){
+            result.innerHTML = checkRadio().substr(getNumA(), getNumB());
+        }
+
+        //把所选输入框中的内容全部转为大写
+        button9.onclick = function(){
+            result.innerHTML = checkRadio().toUpperCase();
+        }
+
+        //把所选输入框中的内容全部转为小写
+        button10.onclick = function(){
+            result.innerHTML = checkRadio().toLowerCase();
+        }
+
+        //把所选输入框中内容的半角空格全部去除
+        button11.onclick = function(){
+            result.innerHTML = checkRadio().replace(/ /ig, "");
+        }
+
+        //把所选输入框中内容的a全部替换成另外一个输入框中的内容
+        button12.onclick = function(){
+            var stringA = getStringA();
+            var stringB = getStringB();
+            if(checkRadio() == stringA) result.innerHTML = stringA.replace(/a/g, stringB);
+            if(checkRadio() == stringB) result.innerHTML = stringB.replace(/a/g, stringA);
+        }
+
+        function getStringA(){
+            return document.getElementById("str-a").value;
+        }
+
+        function getStringB(){
+            return document.getElementById("str-b").value;
+        }
+
+        function getNumA(){
+            return Number(document.getElementById("num-a").value);
+        }
+
+        function getNumB(){
+            return Number(document.getElementById("num-b").value);
+        }
+
+        function checkRadio(){
+            var radioA = document.getElementById("radio-a");
+            var radioB = document.getElementById("radio-b");
+            if (radioA.checked) return getStringA();
+            if (radioB.checked) return getStringB();
+        }
+
+
+    </script>
+</html>

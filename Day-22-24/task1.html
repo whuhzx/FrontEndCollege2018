@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task1</title>
+</head>
+<body>
+    <div>
+        <label>Number A:<input id="radio-a" type="radio" name="math-obj" value="a"></label><input id="num-a" type="text">
+        <label>Number B:<input id="radio-b" type="radio" name="math-obj" value="b"></label><input id="num-b" type="text">
+    </div>
+    <div>
+        <button>判断当前选中的输入框输入内容是否为数字</button>
+        <button>把 A 四舍五入为 B 个小数位数的数字</button>
+        <button>当前选中数字的绝对值</button>
+        <button>对当前选中的数字进行上舍入</button>
+        <button>对当前选中的数字进行下舍入</button>
+        <button>把当前选中的数字四舍五入为最接近的整数</button>
+        <button>返回 A 和 B 中的最高值</button>
+        <button>返回 A 和 B 中的最低值</button>        
+    </div>
+    <p id="result"></p>
+</body>
+    <script>
+        var result = document.getElementById("result");
+        var button1 = document.getElementsByTagName("button")[0];
+        var button2 = document.getElementsByTagName("button")[1];
+        var button3 = document.getElementsByTagName("button")[2];
+        var button4 = document.getElementsByTagName("button")[3];
+        var button5 = document.getElementsByTagName("button")[4];
+        var button6 = document.getElementsByTagName("button")[5];
+        var button7 = document.getElementsByTagName("button")[6];
+        var button8 = document.getElementsByTagName("button")[7];
+
+        //判断当前选中的输入框输入内容是否为数字
+        button1.onclick = function(){
+            var result1, result2;
+            if(typeof getNumberA() !== "number"){
+                result1 = "NumberA is not a number.";
+            }else{
+                result1 = "NumberA is a number.";
+            } 
+
+            if(typeof getNumberB() !== "number"){
+                result2 = "NumberB is not a number.";
+            }else{
+                result2 = "NumberB is a number.";
+            } 
+
+            result.innerHTML = result1 + " " + result2;
+        }
+
+        //把 A 四舍五入为 B 个小数位数的数字
+        button2.onclick = function(){
+            if(typeof getNumberA() !== "number" || typeof getNumberB() !== "number"){
+                console.log("check your input")
+                return;  
+            }
+            result.innerHTML = getNumberA().toFixed(getNumberB());
+        }
+
+        //当前选中数字的绝对值
+        button3.onclick = function(){
+            if(typeof getNumberA() !== "number" || typeof getNumberB() !== "number"){
+                console.log("check your input")
+                return;  
+            }
+            result.innerHTML = `选中数字的绝对值是${Math.abs(checkedRadio())}`
+        }
+
+        //对当前选中的数字进行上舍入
+        button4.onclick = function(){
+            if(typeof getNumberA() !== "number" || typeof getNumberB() !== "number"){
+                console.log("check your input")
+                return;  
+            }
+            result.innerHTML = `选中数字的上舍入值是${Math.ceil(checkedRadio())}`
+        }
+
+        //对当前选中的数字进行下舍入
+        button5.onclick = function(){
+            if(typeof getNumberA() !== "number" || typeof getNumberB() !== "number"){
+                console.log("check your input")
+                return;  
+            }
+            result.innerHTML = `选中数字的下舍入值是${Math.floor(checkedRadio())}`
+        }
+
+        //把当前选中的数字四舍五入为最接近的整数
+        button6.onclick = function(){
+            if(typeof getNumberA() !== "number" || typeof getNumberB() !== "number"){
+                console.log("check your input")
+                return;  
+            }
+            result.innerHTML = `选中数字的四舍五入值是${Math.round(checkedRadio())}`
+        }
+
+        //返回 A 和 B 中的最高值
+        button7.onclick = function(){
+            if(typeof getNumberA() !== "number" || typeof getNumberB() !== "number"){
+                console.log("check your input")
+                return;  
+            }
+            if(getNumberA() > getNumberB()) result.innerHTML = `两个数字中的最高值是${getNumberA()}`;
+            if(getNumberA() < getNumberB()) result.innerHTML = `两个数字中的最高值是${getNumberB()}`;
+            if(getNumberA() == getNumberB()) result.innerHTML = "两个数字一样大";
+        }
+
+        //返回 A 和 B 中的最低值
+        button8.onclick = function(){
+            if(typeof getNumberA() !== "number" || typeof getNumberB() !== "number"){
+                console.log("check your input")
+                return;  
+            }
+            if(getNumberA() < getNumberB()) result.innerHTML = `两个数字中的最低值是${getNumberA()}`;
+            if(getNumberA() > getNumberB()) result.innerHTML = `两个数字中的最低值是${getNumberB()}`;
+            if(getNumberA() == getNumberB()) result.innerHTML = "两个数字一样大";
+        }
+
+        function checkedRadio(){
+            var radioA = document.getElementById("radio-a");
+            var radioB = document.getElementById("radio-b");
+            if(radioA.checked) return getNumberA();
+            if(radioB.checked) return getNumberB();
+        }
+
+        function getNumberA(){
+            return Number(document.getElementById("num-a").value);
+        }
+
+        function getNumberB(){
+            return Number(document.getElementById("num-b").value);
+        }
+
+    </script>
+</html>

@@ -17,7 +17,8 @@
 </body>
 	<script>
 		var container = document.getElementsByClassName("container")[0];
-		(function change(count = 0){
+		(function change(count){
+			if(typeof count == "undefined") var count = 0;
 			if(count>17) count = 0;
 			container.style.backgroundPosition = `0 -${count * 480 + 1}px`;
 			console.log(count)
