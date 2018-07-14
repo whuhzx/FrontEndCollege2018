@@ -106,6 +106,6 @@
 
 ## Day-28-30
 - 课程页面：[给爱的人发个邮件吧](http://ife.baidu.com/course/detail/id/52)
-- [index.html](https://whuhzx.github.io/FrontEndCollege2018/Day-28-30/task1.html)：输入框输入邮箱地址自动提示
+- [index.html](https://whuhzx.github.io/FrontEndCollege2018/Day-28-30/index.html)：输入框输入邮箱地址自动提示
 
 
