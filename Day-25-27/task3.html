@@ -44,17 +44,20 @@ var day = getDay();
 var hours = getHour();
 var minutes = getMinute();
 var seconds = getSecond();
-var weekday, when;
+var weekday, when, gap;
 
 
-(function(){
+function init(){
     for(let select of selects){
         select.onchange = function(){
             changeOption(select);
         }
     }
     showResult()
-})()
+}
+
+setInterval(init, 1000);
+
 
 function changeOption(select){
     var option = Number(select.options[select.selectedIndex].value);
@@ -91,12 +94,12 @@ function showResult(){
     appointTime.setFullYear(year, month-1, day);
     appointTime.setHours(hours, minutes, seconds);
     weekday = transWeekday(appointTime.getDay());
-    var gap = Math.abs(nowTime - appointTime);
+    gap = Math.abs(nowTime - appointTime);
     when = nowTime - appointTime >= 0? "已经过去" : "还有";
-    transTime(gap)
+    transTime()
 }
 
-function transTime(gap){
+function transTime(){
     var total = gap / 1000;
     var remainhours, remainminutes;
     leftday = Math.floor(total / (3600 * 24));
@@ -149,7 +152,6 @@ function getYear(){
 function getMonth(){
     var dom = document.getElementById("month-select");
     createOption(dom, 1, 12);
-    console.log(Number(dom.options[dom.selectedIndex].value))
     return Number(dom.options[dom.selectedIndex].value);
 }
 

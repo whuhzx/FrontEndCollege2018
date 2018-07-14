@@ -104,4 +104,8 @@
 - [task2.html](https://whuhzx.github.io/FrontEndCollege2018/Day-25-27/task2.html)：设计一个简单的时钟，实时更新当前时间
 - [task3.html](https://whuhzx.github.io/FrontEndCollege2018/Day-25-27/task3.html)：设计一个稍微复杂的时钟。根据要求，html 内有一堆 Select 用于选择日期和时间，在选择后，实时在 id 为 result-wrapper 的 p 标签中显示所选时间和当前时间的差值。
 
+## Day-28-30
+- 课程页面：[给爱的人发个邮件吧](http://ife.baidu.com/course/detail/id/52)
+- [index.html](https://whuhzx.github.io/FrontEndCollege2018/Day-28-30/task1.html)：输入框输入邮箱地址自动提示
+
 

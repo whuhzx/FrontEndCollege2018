@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exercise</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		li{
+			list-style-type: none;
+		}
+
+		#wrapper{
+			width: 200px;
+			margin: 30px auto;
+		}
+
+		#email-input{
+			width: 200px;
+		}
+
+		#email-sug-wrapper{
+			border: 1px solid #CCC;
+		}
+
+		.email-hide{
+			display: none;
+		}
+
+		.email-show{
+			display: block;
+		}
+
+		#email-sug-wrapper li{
+			padding: 5px;
+		}
+
+		#email-sug-wrapper li:hover{
+			background-color: #BEDEE9;
+		}
+
+		.keydown-selected-color{
+			background-color: #FEC4CE;
+		}
+
+		.keydown-unselected-color{
+			background-color: #FFF;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<input id = "email-input" type="text">
+		<ul id="email-sug-wrapper" class="email-sug email-hide"></ul>
+	</div>
+</body>
+<script>
+	var profixList = ['163.com', 'gmail.com', '126.com', 'qq.com', 'yahoo.com']
+	var input_node = document.getElementById("email-input");
+	var suggestion = document.getElementById("email-sug-wrapper");
+
+	input_node.addEventListener("input", function(){
+		addSug();
+		showSug();
+	});
+	input_node.focus()
+
+	suggestion.addEventListener("click", function(e){
+		console.log(e.target.nodeName)
+		if(e.target.nodeName.toLowerCase() == "li"){
+			var selected = e.target.innerHTML;
+			input_node.value = selected;
+			suggestion.className = "email-hide";
+		}
+		input_node.focus()
+	},false)
+
+
+	window.addEventListener("keyup", function(e){
+		if (suggestion.className == "email-show" && (e.key == "ArrowDown" || e.key == "ArrowUp" || e.key == "Enter")) {
+			var selected;
+			for (var i = 0; i < suggestion.childNodes.length; i++) {
+				console.log(suggestion.childNodes[i])
+				if(suggestion.childNodes[i].className == "keydown-selected-color"){
+					selected = suggestion.childNodes[i];
+				}
+			}
+			selected.className = "keydown-unselected-color";
+			console.log(selected)
+
+			switch(e.key){
+				case "ArrowUp":
+					if (selected == selected.parentNode.firstChild) {
+						selected.parentNode.lastChild.className = "keydown-selected-color";
+						console.log(selected.parentNode.lastChild)
+					}else{
+						console.log(selected)
+						selected.previousElementSibling.className = "keydown-selected-color";
+					}
+					break;
+
+				case "ArrowDown":
+					if (selected == selected.parentNode.lastChild) {
+							selected.parentNode.firstChild.className = "keydown-selected-color";
+					}else{
+						selected.nextElementSibling.className = "keydown-selected-color";
+					}
+					break;
+
+				case "Enter":
+					console.log("hh")
+					input_node.value = selected.innerHTML;
+					suggestion.className = "email-hide";
+					break;
+			}
+		}
+
+	})
+
+	window.addEventListener("keyup", function(e){
+		if(e.key == "Escape"){
+			input_node.select();
+		}
+	})
+	
+
+	function getInput(){
+		var result = document.getElementById("email-input").value;
+		return HtmlUtil.htmlEncode(result.trim());
+	}
+
+	function addSug(){
+		var content = getInput();
+		suggestion.innerHTML = "";
+		var index = content.indexOf("@");
+		console.log(index)
+		
+		if(index == -1){
+			for(let i=0; i<profixList.length; i++){
+				var li = document.createElement("li");
+				li.innerHTML = `${content}@${profixList[i]}`;
+				suggestion.appendChild(li);
+			}			
+		}else{
+			var flag = false;
+			var prefix = content.slice(0, index)
+			var profix = content.slice(index + 1);
+			console.log(profix)
+			for (var i = 0; i < profixList.length; i++) {
+				if(profixList[i].indexOf(profix) == 0){
+					flag = true;
+					var li = document.createElement("li");
+					li.innerHTML = `${prefix}@${profixList[i]}`;
+					suggestion.appendChild(li);
+				}
+			}
+			if(!flag){
+				for(let i=0; i<profixList.length; i++){
+				var li = document.createElement("li");
+				li.innerHTML = `${prefix}@${profixList[i]}`;
+				suggestion.appendChild(li);
+				}
+			}
+		}
+	}
+
+	function showSug(){
+		var content = getInput();
+		content.trim()? suggestion.className = "email-show" : suggestion.className="email-hide"
+		if (suggestion.className == "email-show") {
+			suggestion.firstChild.className = "keydown-selected-color";
+		}
+	}
+
+	var HtmlUtil = {
+        /*1.用浏览器内部转换器实现html转码*/
+        htmlEncode:function (html){
+            //1.首先动态创建一个容器标签元素，如DIV
+            var temp = document.createElement ("div");
+            //2.然后将要转换的字符串设置为这个元素的innerText(ie支持)或者textContent(火狐，google支持)
+            (temp.textContent != undefined ) ? (temp.textContent = html) : (temp.innerText = html);
+            //3.最后返回这个元素的innerHTML，即得到经过HTML编码转换的字符串了
+            var output = temp.innerHTML;
+            temp = null;
+            return output;
+        },
+        /*2.用浏览器内部转换器实现html解码*/
+        htmlDecode:function (text){
+            //1.首先动态创建一个容器标签元素，如DIV
+            var temp = document.createElement("div");
+            //2.然后将要转换的字符串设置为这个元素的innerHTML(ie，火狐，google都支持)
+            temp.innerHTML = text;
+            //3.最后返回这个元素的innerText(ie支持)或者textContent(火狐，google支持)，即得到经过HTML解码的字符串了。
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        },
+    };
+</script>
+
+</script>
+</html>
