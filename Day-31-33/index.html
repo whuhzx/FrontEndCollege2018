@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.table_style td{
+			border: 1px solid #333;
+			border-collapse: collapse;
+			border-spacing:0;
+			padding: 5px;
+			margin: 0;
+			text-align: center;
+		}
+		
+		#table-wrapper{
+			margin-top: 20px;
+		}
+
+	</style>
+	<script type="text/javascript" src="./ife31data.js"></script>
+</head>
+<body>
+	<div id="region-select">地区：
+		<input type="checkbox" checkbox_type="all">全选
+		<input type="checkbox" value="华东">华东
+		<input type="checkbox" value="华南">华南
+		<input type="checkbox" value="华北">华北
+	</div>
+	<br>
+
+	<div id="product-select">产品：
+		<input type="checkbox" checkbox_type="all">全选
+		<input type="checkbox" value="手机">手机
+		<input type="checkbox" value="笔记本">笔记本
+		<input type="checkbox" value="智能音箱">智能音箱
+	</div>
+
+	<div id="table-wrapper"></div>
+
+	<div></div>
+</body>
+<script>
+	var region = document.getElementById("region-select");
+	var product = document.getElementById("product-select");
+	var table_wrapper = document.getElementById("table-wrapper");
+	var checkboxes = document.getElementsByTagName("input")
+
+	for (single of checkboxes){
+		//点击全选按钮
+		//自定义属性只能用 node.getAttribute()取得
+		if (single.getAttribute('checkbox_type')) {
+			single.addEventListener("change", function(e){
+				console.log(e.target.parentNode.children)
+				var options = Array.prototype.slice.call(e.target.parentNode.children, 1);
+				var flag = true;
+				if (this.checked) {
+					for(ele of options){
+						ele.checked = true;					
+					}
+				}else{
+					for(ele of options){
+						if(!ele.checked) flag = false;
+					}
+					if(flag) this.checked = true;
+				}
+			})
+		}else{
+			//点击非全选按钮
+			single.addEventListener("change", function(e){
+				var options = Array.prototype.slice.call(e.target.parentNode.children, 1);
+				var all_option = e.target.parentNode.firstElementChild;
+				var flag = true;
+				console.log(this.checked)
+				if(this.checked){
+					for(ele of options){
+						console.log(ele.checked)
+						if(!ele.checked) flag = false;						
+					}
+					if(flag) all_option.checked = true;
+				}else{
+					all_option.checked = false;
+				}
+			})
+		}
+
+		single.addEventListener("change", function(e){
+			var options = Array.prototype.slice.call(e.target.parentNode.children, 1);
+			var regions = Array.prototype.slice.call(region.children, 1);
+			var products = Array.prototype.slice.call(product.children, 1);
+			var seleregion = [];
+			var seleproduct = [];
+			for(ele of regions){
+				if(ele.checked) seleregion.push(ele.value);
+			}
+
+			for(ele of products){
+				if(ele.checked) seleproduct.push(ele.value);
+			}
+			
+			console.log(seleregion, seleproduct)
+			var region_num = seleregion.length;
+			var product_num = seleproduct.length;
+			var data = getData(seleregion, seleproduct);
+			renderTable(data, region_num, product_num);
+			
+		})
+	}
+	
+	function getData(seleregion, seleproduct){
+		var result = [];
+		for (eleobj of sourceData){
+			if(seleregion.indexOf(eleobj.region) != -1 && seleproduct.indexOf(eleobj.product) != -1){
+				result.push(eleobj)
+			}
+		}
+		return result;
+	}
+
+	function renderTable(data, region_num, product_num){
+		table_wrapper.innerHTML = "";
+		var table = document.createElement("table");
+		table.className = "table_style"
+		var first, second, firsttype, secondtype, secondlength;
+		var count = 0;
+		if(region_num == 1 && product_num > 1){
+			first = "地区";
+			second = "商品";
+			secondlength = product_num;
+		}else{
+			first = "商品";
+			second = "地区"
+			secondlength = region_num;
+		}
+		console.log(secondlength)
+		table_wrapper.appendChild(table);
+
+		table.innerHTML = 
+		`<tr>
+			<th>${first}</th>
+			<th>${second}</th>
+			<th>1月</th>
+			<th>2月</th>
+			<th>3月</th>
+			<th>4月</th>
+			<th>5月</th>
+			<th>6月</th>
+			<th>7月</th>
+			<th>8月</th>
+			<th>9月</th>
+			<th>10月</th>
+			<th>11月</th>
+			<th>12月</th>
+		</tr>`
+
+		for (eleobj of data){
+			var product = eleobj.product;
+			var region = eleobj.region;
+			var sale = eleobj.sale;
+ 			var trow = document.createElement("tr");
+
+ 			if(first == "商品" && second == "地区"){
+ 				firsttype = product;
+ 				secondtype = region;
+ 			}else if(first == "地区" && second == "商品"){
+ 				firsttype = region;
+ 				secondtype = product;
+ 			}
+ 			var rowspan;
+
+ 			if(secondlength == 1){
+ 				rowspan = `<td>${firsttype}</td>`;
+ 			}else if(secondlength > 1 && count == 0){
+ 				rowspan = `<td rowspan = "${secondlength}">${firsttype}</td>`;
+ 				count ++;
+ 			}else{
+ 				rowspan = "";
+ 				count ++;
+ 				if(count >= secondlength) count = 0;
+ 			}
+ 			console.log(rowspan)
+
+ 			trow.innerHTML = 
+ 			`<tr>
+ 				${rowspan}
+ 				<td>${secondtype}</td>
+ 				<td>${sale[0]}</td>
+ 				<td>${sale[1]}</td>
+ 				<td>${sale[2]}</td>
+ 				<td>${sale[3]}</td>
+ 				<td>${sale[4]}</td>
+ 				<td>${sale[5]}</td>
+ 				<td>${sale[6]}</td>
+ 				<td>${sale[7]}</td>
+ 				<td>${sale[8]}</td>
+ 				<td>${sale[9]}</td>
+ 				<td>${sale[10]}</td>
+ 				<td>${sale[11]}</td>
+ 			</tr>`
+ 			table.appendChild(trow)
+		}
+	}
+
+</script>
+</html>
