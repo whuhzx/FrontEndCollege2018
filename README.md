@@ -110,6 +110,6 @@
 
 ## Day-31-33
 - 课程页面：[我是精明的小卖家（一）](http://ife.baidu.com/course/detail/id/53)
-- [index.html](https://whuhzx.github.io/FrontEndCollege2018/Day-31-33/index.html)：根据地区和产品筛选出数据，并将其以表格的形式呈现在网站上
+- [index.html](https://whuhzx.github.io/FrontEndCollege2018/Day-31-33)：根据地区和产品筛选出数据，并将其以表格的形式呈现在网站上
 
 
